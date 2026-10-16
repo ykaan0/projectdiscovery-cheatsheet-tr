@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  recon-toolkit:
+    build: .
+    container_name: sec_recon_tools
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/workspace
+      - nuclei-templates:/root/nuclei-templates
+      - subfinder-config:/root/.config/subfinder
+    environment:
+      - TERM=xterm-256color
+    network_mode: host
+
+volumes:
+  nuclei-templates:
+  subfinder-config:

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siber Güvenlik & Keşif Cheatsheets | Subfinder, HTTPX, Nuclei & VulnX</title>
+  <meta name="description" content="ProjectDiscovery araçları (Subfinder, HTTPX, Nuclei) ve VulnX için detaylı, Türkçe komut satırı referansı, zafiyet tarama şablonları ve interaktif cheatsheet rehberi.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="alert" aria-live="polite">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+    <span id="toast-msg">Komut kopyalandı!</span>
+  </div>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="brand-badge">
+        <span class="pulse-dot"></span>
+        <span>GÜVENLİK VE KEŞİF CHEATSHEET REPOSU</span>
+      </div>
+      <h1>Subfinder, HTTPX, Nuclei & VulnX</h1>
+      <p class="tagline">
+        ProjectDiscovery ekosistemi ve CMS güvenlik araçları için kapsamlı Türkçe hızlı başvuru rehberi, pratik komut örnekleri ve uçtan uca reconnaissance pipeline'ı.
+      </p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Quick Actions Bar -->
+      <div class="quick-actions-bar">
+        <a href="./checklist/pentest-checklist.md" class="action-btn" id="btn-checklist">
+          📋 Pentest Kontrol Listesi
+        </a>
+        <a href="./troubleshooting/faq.md" class="action-btn" id="btn-faq">
+          🔧 Hata Ayıklama & SSS
+        </a>
+        <a href="./workflows/reconnaissance-pipeline.md" class="action-btn" id="btn-scripts">
+          📜 Otomasyon Scriptleri
+        </a>
+        <button class="action-btn" id="btn-toggle-builder">
+          ⚡ Canlı Komut Oluşturucu
+        </button>
+      </div>
+
+      <!-- Controls Panel (Search & Tabs) -->
+      <section class="controls-panel" id="controls-panel" aria-label="Arama ve Filtreleme">
+        <div class="search-box-wrapper">
+          <span class="search-icon">🔍</span>
+          <input 
+            type="text" 
+            id="search-input" 
+            class="search-input" 
+            placeholder="Komut, parametre, zafiyet veya araç ara... (Örn: cve, status-code, shodan, cms)" 
+            autocomplete="off"
+            aria-label="Komut arama"
+          >
+          <span class="shortcut-badge">Ctrl + K</span>
+          <button id="clear-search-btn" class="clear-search-btn" aria-label="Aramayı Temizle">✕</button>
+        </div>
+
+        <div class="tabs-row">
+          <nav class="tool-tabs" id="tool-tabs" aria-label="Araç Filtresi">
+            <button class="tab-btn active" data-tool="all" id="tab-all">
+              Tümü
+            </button>
+            <button class="tab-btn" data-tool="popular" id="tab-popular">
+              🔥 En Çok Kullanılanlar
+            </button>
+            <button class="tab-btn" data-tool="favorites" id="tab-favorites">
+              ⭐ Favorilerim
+            </button>
+            <button class="tab-btn" data-tool="subfinder" id="tab-subfinder">
+              🔍 Subfinder
+            </button>
+            <button class="tab-btn" data-tool="httpx" id="tab-httpx">
+              ⚡ HTTPX
+            </button>
+            <button class="tab-btn" data-tool="nuclei" id="tab-nuclei">
+              🛡️ Nuclei
+            </button>
+            <button class="tab-btn" data-tool="vulnx" id="tab-vulnx">
+              🎯 VulnX
+            </button>
+            <button class="tab-btn" data-tool="pipeline" id="tab-pipeline">
+              🔗 Pipeline
+            </button>
+          </nav>
+
+          <div class="stats-counter" id="stats-counter">
+            Gösterilen: <span id="visible-count">0</span> / <span id="total-count">0</span> komut
+          </div>
+        </div>
+
+        <div class="quick-tags" id="quick-tags" aria-label="Hızlı Etiketler">
+          <span class="quick-tag-label">Etiketler:</span>
+        </div>
+      </section>
+
+      <!-- Interactive Command Builder -->
+      <section class="builder-section" id="builder-section" aria-label="Canlı Komut Oluşturucu">
+        <div class="builder-header">
+          <h2 class="builder-title">
+            <span>⚡ Canlı Komut Oluşturucu</span>
+          </h2>
+          <span style="font-size: 0.85rem; color: var(--text-dim);">Hedefinizi girin, filtreleri seçin, komut anında oluşsun</span>
+        </div>
+
+        <div class="builder-grid">
+          <div class="builder-field">
+            <label class="builder-label" for="builder-tool-select">Araç Seçimi</label>
+            <select id="builder-tool-select" class="builder-select">
+              <option value="subfinder">🔍 Subfinder (Subdomain Keşfi)</option>
+              <option value="httpx">⚡ HTTPX (Canlılık & HTTP Probing)</option>
+              <option value="nuclei">🛡️ Nuclei (Zafiyet Taraması)</option>
+              <option value="vulnx">🎯 VulnX (CMS Tespiti)</option>
+            </select>
+          </div>
+
+          <div class="builder-field">
+            <label class="builder-label" for="builder-target-input">Hedef (Domain / URL / Dosya)</label>
+            <input type="text" id="builder-target-input" class="builder-input" value="example.com" placeholder="example.com veya targets.txt">
+          </div>
+
+          <div class="builder-field">
+            <label class="builder-label" for="builder-mode-select">Girdi Tipi</label>
+            <select id="builder-mode-select" class="builder-select">
+              <option value="single">Tekil Hedef (-d / -u)</option>
+              <option value="list">Dosya Listesi (-dL / -l / -w)</option>
+            </select>
+          </div>
+
+          <div class="builder-options-group" id="builder-options-group">
+            <!-- Dynamic option checkboxes rendered by app.js -->
+          </div>
+        </div>
+
+        <div class="builder-output-box">
+          <code id="builder-output-cmd">subfinder -d example.com -silent -o subdomains.txt</code>
+          <button class="copy-btn" id="builder-copy-btn" title="Komutu Kopyala">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>Kopyala</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Cards Grid -->
+      <section class="cards-grid" id="cards-grid" aria-label="Cheatsheet Kartları">
+        <!-- Javascript renders cards here dynamically -->
+      </section>
+
+      <!-- Parameter Reference Overview -->
+      <section class="ref-section" id="ref-section" aria-label="Parametre Karşılaştırma ve Hızlı Referans">
+        <div class="section-header">
+          <h2 class="section-title">En Sık Kullanılan Temel Parametreler</h2>
+          <p class="section-subtitle">Araçlar arasında yaygın kullanılan bayrakların hızlı özeti</p>
+        </div>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>İşlev</th>
+                <th>Subfinder</th>
+                <th>HTTPX</th>
+                <th>Nuclei</th>
+                <th>VulnX</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Tekil Hedef</strong></td>
+                <td><code>-d &lt;domain&gt;</code></td>
+                <td><code>-u &lt;url&gt;</code></td>
+                <td><code>-u &lt;url&gt;</code></td>
+                <td><code>-u &lt;url&gt;</code></td>
+              </tr>
+              <tr>
+                <td><strong>Hedef Listesi</strong></td>
+                <td><code>-dL &lt;file&gt;</code></td>
+                <td><code>-l &lt;file&gt;</code></td>
+                <td><code>-l &lt;file&gt;</code></td>
+                <td><code>-w &lt;file&gt;</code></td>
+              </tr>
+              <tr>
+                <td><strong>Sessiz / Temiz Mod</strong></td>
+                <td><code>-silent</code></td>
+                <td><code>-silent</code></td>
+                <td><code>-silent</code></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td><strong>İş Parçacığı (Threads)</strong></td>
+                <td><code>-t &lt;sayı&gt;</code></td>
+                <td><code>-t &lt;sayı&gt;</code></td>
+                <td><code>-c &lt;concurrency&gt;</code></td>
+                <td><code>--threads &lt;sayı&gt;</code></td>
+              </tr>
+              <tr>
+                <td><strong>Hız Sınırı (Rate Limit)</strong></td>
+                <td><code>-rl &lt;sayı&gt;</code></td>
+                <td><code>-rl &lt;sayı&gt;</code></td>
+                <td><code>-rl &lt;sayı&gt;</code></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td><strong>JSON Çıktısı</strong></td>
+                <td><code>-oJ</code></td>
+                <td><code>-json</code></td>
+                <td><code>-j / -jsonl</code></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td><strong>Filtreleme</strong></td>
+                <td><code>-s / -es</code></td>
+                <td><code>-mc / -fc</code></td>
+                <td><code>-severity / -tags</code></td>
+                <td><code>--cms</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        © 2026 Siber Güvenlik Cheatsheet Deposu. Yalnızca yetkili denetimler ve savunma amaçlı analizler içindir.
+      </p>
+      <p style="margin-top: 8px;">
+        Detaylı dokümanlar için: 
+        <a href="./subfinder/README.md">Subfinder</a> | 
+        <a href="./httpx/README.md">HTTPX</a> | 
+        <a href="./nuclei/README.md">Nuclei</a> | 
+        <a href="./vulnx/README.md">VulnX</a> | 
+        <a href="./workflows/reconnaissance-pipeline.md">Recon Pipeline</a>
+      </p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

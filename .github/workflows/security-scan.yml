@@ -1,0 +1,54 @@
+name: Automated Security & Recon Scan
+
+on:
+  schedule:
+    # Her Pazartesi saat 03:00'te otomatik çalıştır (Örnek Cron)
+    - cron: '0 3 * * 1'
+  workflow_dispatch: # Manuel tetikleme imkanı
+
+jobs:
+  recon-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodu Klonla
+        uses: actions/checkout@v4
+
+      - name: Go Ortamını Hazırla
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: ProjectDiscovery Araçlarını Kur
+        run: |
+          go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+          go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+          go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+          echo "$HOME/go/bin" >> $GITHUB_PATH
+
+      - name: Nuclei Şablonlarını Güncelle
+        run: nuclei -update-templates
+
+      - name: 1. Aşama - Subfinder ile Keşif
+        run: |
+          mkdir -p scan_results
+          # Buraya kendi alan adınızı ekleyin
+          subfinder -d example.com -silent -o scan_results/subdomains.txt
+
+      - name: 2. Aşama - HTTPX ile Canlılık Taraması
+        run: |
+          httpx -l scan_results/subdomains.txt -silent -mc 200,301,302 -title -tech-detect -o scan_results/live_hosts.txt
+
+      - name: 3. Aşama - Nuclei ile Kritik Güvenlik Denetimi
+        run: |
+          nuclei -l scan_results/live_hosts.txt \
+                 -severity high,critical \
+                 -etags dos,fuzz \
+                 -rate-limit 30 \
+                 -me scan_results/nuclei_report/ \
+                 -o scan_results/nuclei_findings.txt || true
+
+      - name: Raporları Kaydet (Artifacts)
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-audit-results
+          path: scan_results/

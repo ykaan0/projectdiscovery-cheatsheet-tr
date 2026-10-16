@@ -1,0 +1,25 @@
+# İşletim sistemi dosyaları
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE ve Editör yapılandırmaları
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python geçici dosyaları
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
+
+# Geçici rapor ve log çıktıları
+*.log
+scan_results/
+recon_output_*/
+nuclei_report/
+nuclei_markdown_report/
+output_screenshot/
