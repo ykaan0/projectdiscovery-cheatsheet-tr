@@ -1,5 +1,14 @@
 # 🛠️ Siber Güvenlik ve Keşif Araçları Cheatsheet Deposu
 
+[![Canlı Web Sitesi](https://img.shields.io/badge/🌐_Canlı_Site-ykaan0.github.io%2Fprojectdiscovery--cheatsheet--tr-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white)](https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/)
+[![Lisans](https://img.shields.io/badge/Lisans-MIT-blue.svg?style=for-the-badge)](./LICENSE)
+[![Katkılara Açık](https://img.shields.io/badge/Katkılara-Açık-brightgreen.svg?style=for-the-badge)](./CONTRIBUTING.md)
+
+> [!TIP]
+> 🚀 **İnteraktif Web Arayüzü & Canlı Komut Rehberi Yayında!**
+> Tüm araçları, parametre tablolarını ve tek tıkla komut kopyalama özellikli interaktif arayüzü tarayıcınızda doğrudan kullanmak için:
+> 👉 **[https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/](https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/)**
+
 Bu depo; modern siber güvenlik denetimlerinde, zafiyet yönetiminde ve saldırı yüzeyi analizinde (Attack Surface Management) yaygın olarak kullanılan **ProjectDiscovery** ekosistemi araçları (**Subfinder**, **HTTPX**, **Nuclei**) ile popüler CMS zafiyet denetim aracı **VulnX** için hazırlanmış kapsamlı, Türkçe hızlı başvuru rehberlerini (cheatsheets) ve örnek senaryoları içerir.
 
 ---
@@ -96,9 +105,21 @@ pip install -r requirements.txt
 
 ---
 
-## 🌐 İnteraktif Web Görünümü
+## 🌐 İnteraktif Web Görünümü (GitHub Pages)
 
-Bu depoda yer alan tüm komutlara, parametre tablolarına ve filtrelere tarayıcınızdan interaktif olarak erişmek, tek tıkla komutları kopyalamak ve canlı arama yapmak için depodaki `index.html` dosyasını tarayıcınızda açabilirsiniz.
+Bu depoda yer alan tüm komutlara, parametre tablolarına ve filtrelere tarayıcınızdan interaktif olarak erişmek, tek tıkla komutları kopyalamak ve canlı arama yapmak için GitHub Pages üzerinde yayınlanan canlı web uygulamasını kullanabilirsiniz:
+
+🔗 **Canlı Web Sürümü:** [https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/](https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/)
+
+*(Çevrimdışı veya yerel ortamda çalıştırmak için depodaki `index.html` dosyasını doğrudan herhangi bir web tarayıcısında açabilirsiniz.)*
+
+---
+
+## 🏷️ Depo Etiketleri (GitHub Topics)
+
+Bu projenin GitHub arama sonuçlarında, siber güvenlik topluluklarında ve zafiyet keşfi (bug bounty) araştırmalarında kolayca bulunabilmesi için repoya tanımlanabilecek anahtar etiketler:
+
+`projectdiscovery` • `subfinder` • `httpx` • `nuclei` • `vulnx` • `cheatsheet` • `reconnaissance` • `bugbounty` • `penetration-testing` • `attack-surface-management` • `osint` • `cybersecurity` • `security-tools` • `infosec` • `turkish`
 
 ---
 

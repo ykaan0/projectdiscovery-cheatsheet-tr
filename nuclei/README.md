@@ -1,5 +1,12 @@
 # 🛡️ Nuclei Kapsamlı Cheatsheet (Hızlı Başvuru Rehberi)
 
+[![Canlı Web Sitesi](https://img.shields.io/badge/🌐_Canlı_Rehber-ykaan0.github.io%2Fprojectdiscovery--cheatsheet--tr-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white)](https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/)
+[![Ana Depo](https://img.shields.io/badge/📂_Ana_Depo-projectdiscovery--cheatsheet--tr-blue?style=for-the-badge&logo=github&logoColor=white)](../README.md)
+
+> [!TIP]
+> 🌐 **İnteraktif Web Arayüzü:** Bu cheatsheet'teki komutları filtrelemek, aramak ve tek tıkla kopyalamak için canlı web sürümünü kullanabilirsiniz:
+> 👉 **[https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/](https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/)**
+
 > **Nuclei**, ProjectDiscovery tarafından topluluk odaklı olarak geliştirilen, basit ve okunabilir YAML şablonları (templates) üzerinden çalışan modern, modüler ve son derece hızlı bir güvenlik ve zafiyet tarayıcısıdır.
 
 ---

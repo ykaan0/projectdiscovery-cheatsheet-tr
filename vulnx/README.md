@@ -1,5 +1,12 @@
 # 🎯 VulnX Kapsamlı Cheatsheet (Hızlı Başvuru Rehberi)
 
+[![Canlı Web Sitesi](https://img.shields.io/badge/🌐_Canlı_Rehber-ykaan0.github.io%2Fprojectdiscovery--cheatsheet--tr-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white)](https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/)
+[![Ana Depo](https://img.shields.io/badge/📂_Ana_Depo-projectdiscovery--cheatsheet--tr-blue?style=for-the-badge&logo=github&logoColor=white)](../README.md)
+
+> [!TIP]
+> 🌐 **İnteraktif Web Arayüzü:** Bu cheatsheet'teki komutları filtrelemek, aramak ve tek tıkla kopyalamak için canlı web sürümünü kullanabilirsiniz:
+> 👉 **[https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/](https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/)**
+
 > **VulnX**, popüler İçerik Yönetim Sistemleri (CMS) olan WordPress, Joomla, Drupal, PrestaShop vb. altyapıların tespiti, sürüm analizi ve CMS tabanlı bilinen güvenlik açıklarının taranması amacıyla geliştirilmiş açık kaynaklı bir güvenlik denetim aracıdır.
 
 ---
@@ -140,3 +147,10 @@ python vulnx.py -w targets.txt --cms -o ./reports/2026-audit/
 
 > [!NOTE]
 > **Defansif Yaklaşım**: VulnX gibi araçların otomatik istismar (exploitation) veya yetkisiz dosya yükleme gibi yetenekleri, güvenlik testlerinde sistem bütünlüğünü bozabileceği ve yasal risk doğurabileceği için bu cheatsheet'te yalnızca **CMS tespiti**, **envanter çıkarma** ve **bilgi toplama** fonksiyonları ele alınmıştır.
+
+---
+
+## 🏷️ İlgili Etiketler (Tags)
+
+`vulnx` • `cms-scanner` • `wordpress` • `joomla` • `drupal` • `vulnerability-scanner` • `reconnaissance` • `bugbounty` • `cheatsheet` • `infosec`
+

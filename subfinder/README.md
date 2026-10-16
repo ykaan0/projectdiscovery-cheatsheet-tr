@@ -1,5 +1,12 @@
 # 🔍 Subfinder Kapsamlı Cheatsheet (Hızlı Başvuru Rehberi)
 
+[![Canlı Web Sitesi](https://img.shields.io/badge/🌐_Canlı_Rehber-ykaan0.github.io%2Fprojectdiscovery--cheatsheet--tr-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white)](https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/)
+[![Ana Depo](https://img.shields.io/badge/📂_Ana_Depo-projectdiscovery--cheatsheet--tr-blue?style=for-the-badge&logo=github&logoColor=white)](../README.md)
+
+> [!TIP]
+> 🌐 **İnteraktif Web Arayüzü:** Bu cheatsheet'teki komutları filtrelemek, aramak ve tek tıkla kopyalamak için canlı web sürümünü kullanabilirsiniz:
+> 👉 **[https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/](https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/)**
+
 > **Subfinder**, ProjectDiscovery tarafından Go diliyle geliştirilmiş; hedef alan adlarına ait alt alan adlarını (subdomains) pasif OSINT kaynaklarını kullanarak saniyeler içinde toplayan, modüler ve yüksek performanslı bir araçtır.
 
 ---

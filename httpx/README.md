@@ -1,5 +1,12 @@
 # ⚡ HTTPX Kapsamlı Cheatsheet (Hızlı Başvuru Rehberi)
 
+[![Canlı Web Sitesi](https://img.shields.io/badge/🌐_Canlı_Rehber-ykaan0.github.io%2Fprojectdiscovery--cheatsheet--tr-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white)](https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/)
+[![Ana Depo](https://img.shields.io/badge/📂_Ana_Depo-projectdiscovery--cheatsheet--tr-blue?style=for-the-badge&logo=github&logoColor=white)](../README.md)
+
+> [!TIP]
+> 🌐 **İnteraktif Web Arayüzü:** Bu cheatsheet'teki komutları filtrelemek, aramak ve tek tıkla kopyalamak için canlı web sürümünü kullanabilirsiniz:
+> 👉 **[https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/](https://ykaan0.github.io/projectdiscovery-cheatsheet-tr/)**
+
 > **HTTPX**, ProjectDiscovery tarafından geliştirilmiş; web servislerinin canlılık durumunu, HTTP durum kodlarını, sayfa başlıklarını, kullanılan teknolojileri, SSL sertifikalarını ve web sunucusu detaylarını yüksek hızda denetleyen çok amaçlı bir HTTP probing araçtır.
 
 ---
